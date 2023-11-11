@@ -8,6 +8,7 @@ export const selectoptionsSlice = createSlice({
     selectedmail: false,
     showbar: true,
     farbar: false,
+    pagename:"/",
   },
   reducers: {
     ticked: (state) => {
@@ -31,10 +32,13 @@ export const selectoptionsSlice = createSlice({
     farbaroptions: (state) => {
         state.farbar=true;
     },
+    setpagename: (state,action) => {
+      state.pagename=action.payload;
+    },
   },
 });
 
-export const { ticked, unticked, tickedmail, untickedmail, showbaroptions, hidebaroptions, farbaroptions } = selectoptionsSlice.actions;
+export const { ticked, unticked, tickedmail, untickedmail, showbaroptions, hidebaroptions, farbaroptions, setpagename } = selectoptionsSlice.actions;
 
 
 export const selectOption = (state) => state.selectoptions.selected;
@@ -44,5 +48,7 @@ export const selectSingleOption = (state) => state.selectoptions.selectedmail;
 export const selectShowbarOptions = (state) => state.selectoptions.showbar;
 
 export const selectfarbaroptions=(state) => state.selectoptions.farbar;
+
+export const setpageoptions=(state) => state.selectoptions.pagename;
 
 export default selectoptionsSlice.reducer;

@@ -16,16 +16,20 @@ import StarIcon from '@mui/icons-material/Star';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectedMail } from '../features/counter/mailSlice';
+import { setpageoptions } from '../features/counter/selectoptionsSlice';
 
 function Emaildetail() {
     const navigate=useNavigate();
     const mail=useSelector(selectedMail);
+    const pagefind=useSelector(setpageoptions);
   return (
     <div className='emaildetails'>
         <div className='emaillist__settings'>
             <div className='emaillist__settingsLeft'>
                 <IconButton>
-                    <ArrowBackOutlinedIcon onClick={()=>navigate.goBack()} />
+                    <ArrowBackOutlinedIcon onClick={()=>{
+                        console.log('pagefind',pagefind);
+                        navigate(pagefind || '/');}} />
                 </IconButton>
                 <IconButton>
                     <ArrowDropDownIcon />

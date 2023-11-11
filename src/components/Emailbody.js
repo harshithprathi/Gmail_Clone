@@ -15,7 +15,7 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { db } from '../firebase.js';
-import { selectOption, tickedmail, untickedmail } from '../features/counter/selectoptionsSlice';
+import { selectOption, setpagename, tickedmail, untickedmail } from '../features/counter/selectoptionsSlice';
 import { addDeletedMail, addStarredMail, removeStarredMail, selectStarredMails } from '../features/counter/starredSlice';
 
 function Emailbody({name,email,subject,message,time, page, to}) {
@@ -91,7 +91,10 @@ function Emailbody({name,email,subject,message,time, page, to}) {
             message,
             email,
             time
-        }))
+        }));
+        if(page!=="Inbox"){
+          dispatch(setpagename("/"+page.toLowerCase()));
+        }
         navigate('/mail');
     };
     const toggleSelected = () => {
@@ -204,7 +207,7 @@ function Emailbody({name,email,subject,message,time, page, to}) {
           <StarBorderIcon onClick={toggleStarred} />
         )}
             {/* <LabelOutlinedIcon /> */}
-
+            {page==="Starred" && <h4 onClick={setMail}>{name}</h4>}
             {page==="Snoozed" && <h4 onClick={setMail}>{name}</h4>}
             {page==="Inbox" && <h4 onClick={setMail}>{name}</h4>}
             {page==="Important" && <h4 onClick={setMail}>{name}</h4>}
