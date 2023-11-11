@@ -141,12 +141,11 @@ function Emailbody({name,email,subject,message,time, page, to}) {
     const toggleDeleted =() => {
         const deleteEmailByParameters = ({ name, email, subject, message, to }) => {
             // Query to find the document based on the given parameters
-            db.collection('emails')
-              .where('fromName', '==', name)
-              .where('from', '==', email)
-              .where('subject', '==', subject)
-              .where('message', '==', message)
-              .where('to', '==', to)
+            db.collection('emails')?.where('fromName', '==', name || '')
+              .where('from', '==', email || '')
+              .where('subject', '==', subject || '')
+              .where('message', '==', message || '')
+              .where('to', '==', to || '')
               .get()
               .then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -174,6 +173,13 @@ function Emailbody({name,email,subject,message,time, page, to}) {
                 page,
                 to
             }));
+            dispatch(removeStarredMail({
+                name,
+                subject,
+                email,
+                message,
+                time,
+            }))
             deleteEmailByParameters({
                 name: name,
                 email: email,

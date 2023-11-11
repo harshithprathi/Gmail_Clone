@@ -95,24 +95,24 @@ function Sidebar({selectedPage}){
                     navigate('/important');
                 }
                 }} />
-            <Sidebaroptions Icon={ChatOutlinedIcon} title="Chats" number={10}  isactive={activeOption === 'Chats'} onClick={() => handleOptionClick('Chats')} />
+            <Sidebaroptions Icon={ChatOutlinedIcon} title="Chats" number={10}  isactive={false} onClick={() => handleOptionClick('Chats')} />
             <Sidebaroptions Icon={SendIcon} title="Sent" number={254} isactive={selectedPage === 'Sent'} onClick={() => {
                 handleOptionClick('Sent');
                 if(selectedPage !== 'Sent'){
                     navigate('/sent');
                 }
                 }} />
-            <Sidebaroptions Icon={ScheduleSendOutlinedIcon} title="Scheduled" number={254}  isactive={activeOption === 'Scheduled'} onClick={() => handleOptionClick('Scheduled')} />
-            <Sidebaroptions Icon={MarkAsUnreadOutlinedIcon} title="All Mail" number={254}  isactive={activeOption === 'All Mail'} onClick={() => handleOptionClick('All Mail')} />
-            <Sidebaroptions Icon={ReportGmailerrorredIcon} title="Spam" number={56}  isactive={activeOption === 'Spam'} onClick={() => handleOptionClick('Spam')} />
+            <Sidebaroptions Icon={ScheduleSendOutlinedIcon} title="Scheduled" number={254}  isactive={false} onClick={() => handleOptionClick('Scheduled')} />
+            <Sidebaroptions Icon={MarkAsUnreadOutlinedIcon} title="All Mail" number={254}  isactive={false} onClick={() => handleOptionClick('All Mail')} />
+            <Sidebaroptions Icon={ReportGmailerrorredIcon} title="Spam" number={56}  isactive={false} onClick={() => handleOptionClick('Spam')} />
             <Sidebaroptions Icon={DeleteIcon} title="Bin" number={254}  isactive={selectedPage === 'Bin'} onClick={() => {
                 handleOptionClick('Bin');
                 if(selectedPage!=='Bin'){
                     navigate('/bin');
                 }}} />           
-            <Sidebaroptions Icon={LabelOutlinedIcon} title="Categories" number={254} isactive={activeOption === 'Categories'} onClick={() => handleOptionClick('Categories')} />
-            <Sidebaroptions Icon={SettingsOutlinedIcon} title="Manage Labels" number={254} isactive={activeOption === 'Manage Labels'} onClick={() => handleOptionClick('Manage Labels')} />
-            <Sidebaroptions Icon={AddIcon} title="Create new Label" number={254} isactive={activeOption === 'Create new Label'} onClick={() => handleOptionClick('Create new Label')} />
+            <Sidebaroptions Icon={LabelOutlinedIcon} title="Categories" number={254} isactive={false} onClick={() => handleOptionClick('Categories')} />
+            <Sidebaroptions Icon={SettingsOutlinedIcon} title="Manage Labels" number={254} isactive={false} onClick={() => handleOptionClick('Manage Labels')} />
+            <Sidebaroptions Icon={AddIcon} title="Create new Label" number={254} isactive={activeOption === false} onClick={() => handleOptionClick('Create new Label')} />
             </div>
             )}
             <hr />

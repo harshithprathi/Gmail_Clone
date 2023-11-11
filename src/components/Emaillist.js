@@ -7,6 +7,7 @@ import { db } from '../firebase.js';
 import { selectStarredMails, showDeletedMails } from '../features/counter/starredSlice';
 import { useSelector } from 'react-redux';
 import { selectShowbarOptions } from '../features/counter/selectoptionsSlice';
+import { selectUser } from '../features/counter/useSlice';
 
 
 function Emaillist({page}) {
@@ -15,6 +16,7 @@ function Emaillist({page}) {
     // const [starmails,setstarmails]= useState([]);
     const show=useSelector(selectShowbarOptions);
     const deletedmails=useSelector(showDeletedMails);
+    const user=useSelector(selectUser);
 
 
     useEffect(()=>{
@@ -30,27 +32,30 @@ function Emaillist({page}) {
         <EmailListSetting />
         <Emailtype />
         {   (page!=="Starred" && page!=="Bin") &&
-            emails.map(({ id, data })=>{
-                return (
-                <Emailbody 
-                name={data.fromName}
-                email={data.from}
-                key={id}
-                subject={data.subject} 
-                message={data.message} 
-                time={new Date(data.timestamp?.seconds*1000).toLocaleTimeString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                })}
-                page= {page}
-                to={data.to} />);
+            emails?.map(({ id, data })=>{
+                if (data.from === user.email){
+                    return (
+                        <Emailbody 
+                        name={data.fromName}
+                        email={data.from}
+                        key={id}
+                        subject={data.subject} 
+                        message={data.message} 
+                        time={new Date(data.timestamp?.seconds*1000).toLocaleTimeString([], {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                        })}
+                        page= {page}
+                        to={data.to} />);
+                }
+                
             })
         }
         {
             page==='Starred' &&
-            starredmails.map((data)=>{
+            starredmails?.map((data)=>{
                 return (
-                    <Emailbody 
+                    <Emailbody
                     name={data.name}
                     email={data.email}
                     key={(1000+ Math.random() + Math.random()).toString(36)}
@@ -65,7 +70,7 @@ function Emaillist({page}) {
         }
         {
             page==='Bin' &&
-            deletedmails.map((data)=>{
+            deletedmails?.map((data)=>{
                 return (
                     <Emailbody 
                     name={data.name}
