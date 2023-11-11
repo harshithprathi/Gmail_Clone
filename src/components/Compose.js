@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import RemoveIcon from '@material-ui/icons/Remove';
-import HeightIcon from '@material-ui/icons/Height';
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import FormatColorTextIcon from '@material-ui/icons/FormatColorText';
-import AttachFileIcon from '@material-ui/icons/AttachFile';
-import LinkIcon from '@material-ui/icons/Link';
-import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
-import NoteAddIcon from '@material-ui/icons/NoteAdd';
-import PhotoIcon from '@material-ui/icons/Photo';
-import PhonelinkLockIcon from '@material-ui/icons/PhonelinkLock';
-import CreateIcon from '@material-ui/icons/Create';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
-import DeleteIcon from '@material-ui/icons/Delete';
+import RemoveIcon from '@mui/icons-material/Remove';
+import HeightIcon from '@mui/icons-material/Height';
+import CloseIcon from '@mui/icons-material/Close';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import FormatColorTextIcon from '@mui/icons-material/FormatColorText';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import LinkIcon from '@mui/icons-material/Link';
+import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
+import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
+import CreateIcon from '@mui/icons-material/Create';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import DeleteIcon from '@mui/icons-material/Delete';
 import '../css/compose.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSendMessage } from '../features/counter/mailSlice';
@@ -149,9 +149,9 @@ function Compose() {
                     <FormatColorTextIcon/>
                     <AttachFileIcon/>
                     <LinkIcon/>
-                    <InsertEmoticonIcon/>
+                    <EmojiEmotionsOutlinedIcon/>
                     <NoteAddIcon/>
-                    <PhotoIcon/>
+                    <InsertPhotoIcon/>
                     <PhonelinkLockIcon/>
                     <CreateIcon/>
                     <MoreVertIcon/>

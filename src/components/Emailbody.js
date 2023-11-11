@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import '../css/emaillist.css';
-import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarIcon from '@material-ui/icons/Star';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
 // import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openMessage } from '../features/counter/mailSlice';
-import ArchiveIcon from '@material-ui/icons/Archive';
-import DeleteIcon from '@material-ui/icons/Delete';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import ArchiveIcon from '@mui/icons-material/Archive';
+import DeleteIcon from '@mui/icons-material/Delete';
+import DraftsIcon from '@mui/icons-material/Drafts';
 // import SnoozeIcon from '@material-ui/icons/Snooze';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
@@ -220,7 +220,7 @@ function Emailbody({name,email,subject,message,time, page, to}) {
         <div className='emailbody__right'>
             {/* <p  className={`emailbody__time ${!showActions ? 'hide-time' : ''}`}>
             {time} */}
-            {(selected || showActions) && (
+            {selected || showActions && (
             <span className='actions'>
               <ArchiveIcon />
               <DeleteIcon onClick={toggleDeleted} />

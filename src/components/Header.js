@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import ReorderIcon from '@material-ui/icons/Reorder';
-import {IconButton, Avatar} from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search';
+import ReorderIcon from '@mui/icons-material/Reorder';
+import { Avatar, IconButton } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 // import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import Appsicon from '@material-ui/icons/Apps';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';import '../css/header.css';
-import Tune from '@material-ui/icons/Tune';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import AppsIcon from '@mui/icons-material/Apps';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import '../css/header.css';
+import TuneIcon from '@mui/icons-material/Tune';
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser } from "../features/counter/useSlice";
 import firebase from 'firebase/compat/app';
@@ -44,19 +45,19 @@ function Header(){
                         </IconButton>
                         <input type="text" placeholder="Search mail" />
                         <IconButton>
-                            <Tune></Tune>
+                            <TuneIcon></TuneIcon>
                         </IconButton>
                     </div>
             </div>
             <div className="right_header">
                 <IconButton>
-                    <HelpOutlineIcon></HelpOutlineIcon>
+                    <HelpOutlineOutlinedIcon></HelpOutlineOutlinedIcon>
                 </IconButton>
                 <IconButton>
                     <SettingsOutlinedIcon></SettingsOutlinedIcon>
                 </IconButton>
                 <IconButton>
-                    <Appsicon></Appsicon>
+                    <AppsIcon></AppsIcon>
                 </IconButton>
                 <Avatar src={user?.photoURL} onClick={()=>firebase.auth().signOut()}></Avatar>
             </div>

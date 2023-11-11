@@ -1,17 +1,17 @@
 import React from 'react';
 import '../css/emaillist.css';
-import { Avatar, IconButton } from '@material-ui/core';
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import RefreshIcon from '@material-ui/icons//Refresh';
-import ReplyIcon from '@material-ui/icons/Reply';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import LabelImportantIcon from '@material-ui/icons/LabelImportant';
-import PrintIcon from '@material-ui/icons/Print';
-import LaunchIcon from '@material-ui/icons/Launch';
-import MoreVertIcon from '@material-ui/icons//MoreVert';
-import StarIcon from '@material-ui/icons/Star';
+import { Avatar, IconButton } from '@mui/material';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import RefreshOutlinedIcon from '@mui/icons-material/RefreshOutlined';
+import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
+import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import LabelImportantIcon from '@mui/icons-material/LabelImportant';
+import PrintIcon from '@mui/icons-material/Print';
+import LaunchIcon from '@mui/icons-material/Launch';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import StarIcon from '@mui/icons-material/Star';
 // import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -25,13 +25,13 @@ function Emaildetail() {
         <div className='emaillist__settings'>
             <div className='emaillist__settingsLeft'>
                 <IconButton>
-                    <ArrowBackIcon onClick={()=>navigate('/')} />
+                    <ArrowBackOutlinedIcon onClick={()=>navigate.goBack()} />
                 </IconButton>
                 <IconButton>
                     <ArrowDropDownIcon />
                 </IconButton>
                 <IconButton>
-                    <RefreshIcon />
+                    <RefreshOutlinedIcon />
                 </IconButton>
                 <IconButton>
                     <MoreVertIcon />
@@ -41,10 +41,10 @@ function Emaildetail() {
             <div className='emaillist__settingsRight'>
                 <p>1-50 of 1,432</p>
                 <IconButton>
-                    <ChevronLeftIcon />
+                    <ChevronLeftOutlinedIcon />
                 </IconButton>
                 <IconButton>
-                    <ChevronRightIcon />
+                    <ChevronRightOutlinedIcon />
                 </IconButton>
             </div>
         </div>
@@ -83,7 +83,7 @@ function Emaildetail() {
                     <StarIcon />
                 </IconButton>
                 <IconButton>
-                    <ReplyIcon />
+                    <ReplyOutlinedIcon />
                 </IconButton>
                 <IconButton>
                     <MoreVertIcon />
