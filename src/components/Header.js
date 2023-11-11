@@ -8,7 +8,7 @@ import Appsicon from '@material-ui/icons/Apps';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';import '../css/header.css';
 import Tune from '@material-ui/icons/Tune';
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, signout } from "../features/counter/useSlice";
+import { selectUser } from "../features/counter/useSlice";
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';

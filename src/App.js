@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // import Emaildetail from './components/Emaildetail';
 import Main from './pages/Mainpage';
 import MessagePage from './pages/MessagePage';
-import { BrowserRouter as Router, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import { selectUser, signin, signout } from './features/counter/useSlice';
 import { auth } from './firebase';

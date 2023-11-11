@@ -16,7 +16,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 // import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { db } from '../firebase.js';
 import { selectOption, tickedmail, untickedmail } from '../features/counter/selectoptionsSlice';
-import { addDeletedMail, addStarredMail, removeDeletedMail, removeStarredMail, selectIsFound, selectStarredMails } from '../features/counter/starredSlice';
+import { addDeletedMail, addStarredMail, removeStarredMail, selectStarredMails } from '../features/counter/starredSlice';
 
 function Emailbody({name,email,subject,message,time, page, to}) {
     const navigate=useNavigate();
@@ -82,7 +82,7 @@ function Emailbody({name,email,subject,message,time, page, to}) {
         //   }
     },[starred]);
 
-    const star=useSelector(selectIsFound);
+    // const star=useSelector(selectIsFound);
 
     const setMail=()=>{
         dispatch(openMessage({
@@ -220,7 +220,7 @@ function Emailbody({name,email,subject,message,time, page, to}) {
         <div className='emailbody__right'>
             {/* <p  className={`emailbody__time ${!showActions ? 'hide-time' : ''}`}>
             {time} */}
-            {selected || showActions && (
+            {(selected || showActions) && (
             <span className='actions'>
               <ArchiveIcon />
               <DeleteIcon onClick={toggleDeleted} />

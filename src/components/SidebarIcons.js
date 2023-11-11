@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IconButton } from "@material-ui/core";
 // import AddIcon from "@material-ui/icons/Add";
 // import CreateButton from "@material-ui/icons/Create";
@@ -24,12 +24,12 @@ import InsertDriveFileOutlined from '@mui/icons-material/InsertDriveFileOutlined
 // import MarkAsUnreadOutlinedIcon from '@mui/icons-material/MarkAsUnreadOutlined';
 // import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { useDispatch } from "react-redux";
-import { openSendMessage } from "../features/counter/mailSlice";
-import { useNavigate } from "react-router-dom";
-import { hidebaroptions, selectShowbarOptions, showbaroptions } from "../features/counter/selectoptionsSlice";
+// import { openSendMessage } from "../features/counter/mailSlice";
+// import { useNavigate } from "react-router-dom";
+import { hidebaroptions } from "../features/counter/selectoptionsSlice";
 function SidebarIcons() {
     const dispatch=useDispatch();
-    const navigate=useNavigate();
+    // const navigate=useNavigate();
     const handleclick = () =>{
         dispatch(hidebaroptions());
         console.log('clickedicon');

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Emaillist from '../components/Emaillist';
 import Compose from '../components/Compose';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectSendMessageIsOpen } from '../features/counter/mailSlice';
 // import Emaildetail from '../components/Emaildetail';
 import { selectShowbarOptions } from '../features/counter/selectoptionsSlice';
@@ -15,8 +15,8 @@ import RightSideIcons from '../components/RightSideIcons';
 function Main() {
   const isMessageOpen=useSelector(selectSendMessageIsOpen);
   const show=useSelector(selectShowbarOptions);
-  const [displaySidebar, setDisplaySidebar] = useState(false);
-  const dispatch=useDispatch();
+  // const [displaySidebar, setDisplaySidebar] = useState(false);
+  // const dispatch=useDispatch();
 
   // const toggleDisplay = () => {
   //   setDisplaySidebar(!displaySidebar);
