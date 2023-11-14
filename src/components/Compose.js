@@ -16,6 +16,7 @@ import PhonelinkLockIcon from '@mui/icons-material/PhonelinkLock';
 import CreateIcon from '@mui/icons-material/Create';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import '../css/compose.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSendMessage, closeexpand, openexpand } from '../features/counter/mailSlice';
@@ -164,7 +165,7 @@ function Compose() {
                         </div>
                         <div className='compose__header__right__expanded'>
                             <RemoveIcon  onClick={toggleMinimize} />
-                            <HeightIcon onClick={toggleMaximize} />
+                            <CloseFullscreenIcon style={{transform:'rotate(45deg)', transformOrigin:'center'}} onClick={toggleMaximize} />
                             <CloseIcon onClick={()=>dispatch(closeSendMessage())} />
                         </div>
     
