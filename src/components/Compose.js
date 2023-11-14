@@ -114,7 +114,7 @@ function Compose() {
     }
 
     const toggleMinimize = () => {
-        setIsExpanded(!isExpanded);
+        setIsExpanded(false);
         setIsMinimized(!isMinimized);
     };
 
@@ -140,6 +140,7 @@ function Compose() {
             setIsExpanded(false);
             dispatch(closeSendMessage());
         };
+        
         return (
             // <div className='composeexpandedd'>
             <Dialog
