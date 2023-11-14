@@ -25,8 +25,8 @@ import InsertDriveFileOutlined from '@mui/icons-material/InsertDriveFileOutlined
 import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import MarkAsUnreadOutlinedIcon from '@mui/icons-material/MarkAsUnreadOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { useDispatch } from "react-redux";
-import { openSendMessage } from "../features/counter/mailSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { openSendMessage, selectexpanded } from "../features/counter/mailSlice";
 import { useNavigate } from "react-router-dom";
 // import { selectShowbarOptions } from "../features/counter/selectoptionsSlice";
 
@@ -37,6 +37,7 @@ function Sidebar({selectedPage}){
     const [showToggleOption, setShowToggleOption] = useState('More');
     const [activeOption, setActiveOption] = useState('Inbox'); // Add this state
     const navigate=useNavigate();
+    const isExpanded=useSelector(selectexpanded);
 
     
     useEffect(() => {
@@ -64,10 +65,10 @@ function Sidebar({selectedPage}){
 
     return (
         <div className="sidebar">
-            <Button startIcon={<ModeEditOutlineOutlinedIcon  style={{fontSize:"24px"}} />} className="compose_btn" onClick={()=>{
+            <Button startIcon={<ModeEditOutlineOutlinedIcon  style={{fontSize:"24px", color:'black'}} />} className={"compose_btn"} onClick={()=>{
                 dispatch(openSendMessage());
                 console.log('sidedispatch',dispatch(openSendMessage()));}}>
-            <span className="capitalize-first-letter" style={{fontWeight: 'normal'}}>Compose</span>
+            <span className="capitalize-first-letter" style={{fontWeight: 'normal', color:'black'}}>Compose</span>
             </Button>
             <Sidebaroptions Icon={InboxIcon} title="Inbox" number={224} isactive={selectedPage === 'Inbox'} onClick={() => {
                 handleOptionClick('Inbox');

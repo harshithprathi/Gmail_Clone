@@ -15,6 +15,7 @@ import RightSideIcons from '../components/RightSideIcons';
 function Main() {
   const isMessageOpen=useSelector(selectSendMessageIsOpen);
   const show=useSelector(selectShowbarOptions);
+  // const isExpanded=useSelector(selectexpanded);
   // const [displaySidebar, setDisplaySidebar] = useState(false);
   // const dispatch=useDispatch();
 
