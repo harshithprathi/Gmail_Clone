@@ -17,6 +17,12 @@ import CreateIcon from '@mui/icons-material/Create';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import FormatItalicIcon from '@mui/icons-material/FormatItalic';
+import FormatUnderlinedIcon from '@mui/icons-material/FormatUnderlined';
+import FormatAlignLeftIcon from '@mui/icons-material/FormatAlignLeft';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import '../css/compose.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSendMessage, closeexpand, openexpand } from '../features/counter/mailSlice';
@@ -25,6 +31,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { selectUser } from '../features/counter/useSlice';
+import { IconButton } from '@mui/material';
 // import { Dialog} from "@mui/material"
 
 function Compose() {
@@ -33,6 +40,7 @@ function Compose() {
     const [message,setMessage]=useState('');
     const [isMinimized, setIsMinimized] = useState(false);
     const [isExpanded,setIsExpanded]=useState(false);
+    const [isFormatBarActive, setIsFormatBarActive] = useState(false);
     const dispatch=useDispatch();
     const user=useSelector(selectUser);
 
@@ -130,6 +138,10 @@ function Compose() {
         setIsExpanded(!isExpanded);
     };
 
+    const handleFormatBarClick = () => {
+        setIsFormatBarActive(!isFormatBarActive);
+    };
+
     if(isExpanded){
     
         const toggleMaximize = () => {
@@ -182,14 +194,37 @@ function Compose() {
     
                             </div>
                         </div>
-    
+                        {isFormatBarActive && (
+                            <div className='format-bar-icons'>
+                                <img src="https://www.gstatic.com/images/icons/material/system_gm/2x/undo_black_20dp.png" height={20} width={20} style={{opacity: '0.7', marginLeft:'5px', marginRight: '5px'}} alt="loading..." />
+                                <img src="https://www.gstatic.com/images/icons/material/system_gm/2x/redo_black_20dp.png" height={20} width={20} style={{opacity: '0.7', marginLeft:'5px'}} alt="loading..." />
+                                <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px'}}>|</p>
+                                <div style={{display:'flex', margin: '0'}}><p style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '13px', color:'#444'}}>Sans Serif</p> <ArrowDropDownIcon style={{marginTop: '12px', fontSize: '18px', marginLeft:'10px'}} /></div>
+                                <p style={{color:'#f0f0f0', margin:'10px', marginLeft:'0px', fontSize: '18px'}}>|</p>
+                                <TextFieldsIcon style={{fontSize:'20px', color:'#595959'}} />
+                                <ArrowDropDownIcon fontSize='15px' />
+                                <p style={{color:'#f0f0f0', margin:'10px',  marginLeft:'0px', fontSize: '18px'}}>|</p>
+                                <FormatBoldIcon style={{fontSize:'22px', color:'#595959'}} />
+                                <FormatItalicIcon style={{fontSize:'22px', color:'#595959'}} />
+                                <FormatUnderlinedIcon style={{fontSize:'20px',marginLeft:'5px', color:'#595959'}}/>
+                                <FormatColorTextIcon style={{fontSize:'18px',marginLeft:'5px', color:'#595959'}}/>
+                                <ArrowDropDownIcon fontSize='15px' />
+                                <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px', marginLeft:'0px'}}>|</p>
+                                <FormatAlignLeftIcon style={{fontSize:'20px', color:'#595959'}} />
+                                <ArrowDropDownIcon fontSize='15px' />
+                                <FormatListBulletedIcon style={{fontSize:'20px', color:'#595959'}} />
+                                <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px', marginRight:'0px'}}>|</p>
+                                <ArrowDropDownIcon fontSize='15px' style={{marginRight: '5px'}} />
+
+                            </div>
+                        )}
                         <div className='compose__footer'>
                             <div className='compose__footerLeft'>
                         <button type='submit'>
                             Send <ArrowDropDownIcon/>
                         </button>
                         <div className='compose__footerRight'>
-                        <FormatColorTextIcon/>
+                        <FormatColorTextIcon onClick={handleFormatBarClick} />
                         <AttachFileIcon/>
                         <LinkIcon/>
                         <EmojiEmotionsOutlinedIcon/>
@@ -233,14 +268,37 @@ function Compose() {
                     <textarea rows={isExpanded?"28":"20"} onChange={(e)=>setMessage(e.target.value)}>{message}</textarea>
                 </div>
             </div>
-    
+            {isFormatBarActive && (
+                <div className='format-bar-icons'>
+                    <img src="https://www.gstatic.com/images/icons/material/system_gm/2x/undo_black_20dp.png" height={20} width={20} style={{opacity: '0.7', marginLeft:'5px', marginRight: '5px'}} alt="loading..." />
+                    <img src="https://www.gstatic.com/images/icons/material/system_gm/2x/redo_black_20dp.png" height={20} width={20} style={{opacity: '0.7', marginLeft:'5px'}} alt="loading..." />
+                    <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px'}}>|</p>
+                    <div style={{display:'flex', margin: '0'}}><p style={{fontFamily: 'sans-serif', fontWeight: 'bold', fontSize: '13px', color:'#444'}}>Sans Serif</p> <ArrowDropDownIcon style={{marginTop: '12px', fontSize: '18px', marginLeft:'10px'}} /></div>
+                    <p style={{color:'#f0f0f0', margin:'10px', marginLeft:'0px', fontSize: '18px'}}>|</p>
+                    <TextFieldsIcon style={{fontSize:'20px', color:'#595959'}} />
+                    <ArrowDropDownIcon fontSize='15px' />
+                    <p style={{color:'#f0f0f0', margin:'10px',  marginLeft:'0px', fontSize: '18px'}}>|</p>
+                    <FormatBoldIcon style={{fontSize:'22px', color:'#595959'}} />
+                    <FormatItalicIcon style={{fontSize:'22px', color:'#595959'}} />
+                    <FormatUnderlinedIcon style={{fontSize:'20px',marginLeft:'5px', color:'#595959'}}/>
+                    <FormatColorTextIcon style={{fontSize:'18px',marginLeft:'5px', color:'#595959'}}/>
+                    <ArrowDropDownIcon fontSize='15px' />
+                    <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px', marginLeft:'0px'}}>|</p>
+                    <FormatAlignLeftIcon style={{fontSize:'20px', color:'#595959'}} />
+                    <ArrowDropDownIcon fontSize='15px' />
+                    <FormatListBulletedIcon style={{fontSize:'20px', color:'#595959'}} />
+                    <p style={{color:'#f0f0f0', margin:'10px', fontSize: '18px', marginRight:'0px'}}>|</p>
+                    <ArrowDropDownIcon fontSize='15px' style={{marginRight: '5px'}} />
+
+                </div>
+            )}
             <div className='compose__footer'>
                 <div className='compose__footerLeft'>
                     <button type='submit'>
                         Send <ArrowDropDownIcon/>
                     </button>
                     <div className='compose__footerRight'>
-                    <FormatColorTextIcon/>
+                    <FormatColorTextIcon onClick={handleFormatBarClick} />
                     <AttachFileIcon/>
                     <LinkIcon/>
                     <EmojiEmotionsOutlinedIcon/>
